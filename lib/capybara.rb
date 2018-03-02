@@ -132,6 +132,10 @@ module Capybara
       servers[name.to_sym] = block
     end
 
+    def register_plugin(name, plugin)
+      plugins[name.to_sym] = plugin
+    end
+
     ##
     #
     # Add a new selector to Capybara. Selectors can be used by various methods in Capybara
@@ -188,6 +192,10 @@ module Capybara
 
     def servers
       @servers ||= {}
+    end
+
+    def plugins
+      @plugins ||= {}
     end
 
     # Wraps the given string, which should contain an HTML document or fragment

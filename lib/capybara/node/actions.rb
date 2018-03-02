@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'capybara/node/pluginify'
+
 module Capybara
   module Node
     module Actions
@@ -173,7 +175,9 @@ module Capybara
       # @param from: [String]  The id, Capybara.test_id atrtribute, name or label of the select box
       #
       # @return [Capybara::Node::Element]  The option element selected
-      def select(value = nil, from: nil, **options)
+      def select(value = nil, from: nil, using: nil, **options)
+        return Capybara.plugins[using].select(self, value, from: from, **options) if using
+
         el = from ? find_select_or_datalist_input(from, options) : self
 
         if el.respond_to?(:tag_name) && (el.tag_name == "input")
@@ -236,6 +240,8 @@ module Capybara
           find(:file_field, locator, options).set(path)
         end
       end
+
+      prepend ::Capybara::Node::Pluginify
 
     private
 
