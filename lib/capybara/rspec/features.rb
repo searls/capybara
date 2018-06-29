@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_context "Capybara Features", capybara_feature: true do
+RSpec.shared_context "Capybara Features" do
   instance_eval do
     alias background before
     alias given let
@@ -8,9 +8,8 @@ RSpec.shared_context "Capybara Features", capybara_feature: true do
   end
 end
 
-# ensure shared_context is included if default shared_context_metadata_behavior is changed
 RSpec.configure do |config|
-  config.include_context "Capybara Features", capybara_feature: true if config.respond_to?(:include_context)
+  config.include_context "Capybara Features", :capybara_feature
 end
 
 RSpec.configure do |config|

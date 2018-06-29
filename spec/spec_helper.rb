@@ -6,6 +6,5 @@ require 'webdrivers' if ENV['CI']
 
 RSpec.configure do |config|
   Capybara::SpecHelper.configure(config)
-  config.filter_run_including focus_: true unless ENV['CI']
-  config.run_all_when_everything_filtered = true
+  config.filter_run_when_matching :focus_ unless ENV['CI']
 end

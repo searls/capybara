@@ -5,7 +5,7 @@ services:
   - docker
 rvm:
   - 2.5.1
-  - jruby-9.1.16.0
+  - jruby-9.1.17.0
 gemfile:
   - Gemfile
 env:
@@ -39,7 +39,7 @@ matrix:
       env:
         - CAPYBARA_REMOTE=true
         - CAPYBARA_FF=true
-    - gemfile: gemfiles/Gemfile.rspec-34
+    - gemfile: gemfiles/Gemfile.rspec-35
       rvm: 2.3.7
       env: CAPYBARA_FF=true
       addons:
