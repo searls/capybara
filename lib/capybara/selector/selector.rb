@@ -368,6 +368,11 @@ module Capybara
         end
       end
     end
+
+    def describe_node_filters(&block)
+      describe(node_filters: true, &block)
+    end
+
     ##
     #
     # Set the default visibility mode that shouble be used if no visibile option is passed when using the selector.

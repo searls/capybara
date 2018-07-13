@@ -820,6 +820,7 @@ RSpec.shared_examples Capybara::RSpecMatchers do |session, _mode|
 
     it "gives proper description" do
       expect(have_table('Lovely table').description).to eq("have visible table \"Lovely table\"")
+      expect(have_table('Lovely table', caption: 'my caption').description).to eq('have visible table "Lovely table" with caption "my caption"')
     end
 
     it "gives proper description when :visible option passed" do

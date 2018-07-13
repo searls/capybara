@@ -141,7 +141,7 @@ RSpec.shared_examples "Capybara::Session" do |session, mode|
       end
     end
 
-    context  '#fill_in with Date', :focus_ do
+    context  '#fill_in with Date' do
       before do
         session.visit('/form')
         fd = session.find(:css, '#form_date')
